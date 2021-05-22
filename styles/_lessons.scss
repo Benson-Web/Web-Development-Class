@@ -1,0 +1,13 @@
+#comingSoon {
+    @include centerDiv();
+    margin-top: 100px;
+    height: 100%;
+    padding: 50px;
+    text-align: center;
+
+    p{
+        color: red;
+        font-weight: bolder;
+    }
+
+}

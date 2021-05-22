@@ -1,0 +1,173 @@
+@keyframes moveRight {
+    0% {width: 0;
+        opacity: 0;
+        }
+    100% {width: 100%;
+        }
+}
+
+
+
+.formCont {
+    position: absolute;
+    top: 0;
+    display: none;
+    height: 100%;
+    padding: 100px;
+    width: 100%;
+    background-color: $maincolor;
+    color: $textcolor;
+    font-size: 20px;
+    transition: display 0.5s ease;
+    animation: moveRight 0.5s ease both;
+
+    .cancel {
+        position: absolute;
+        top: 50;
+        right: 50px;
+        a {
+            text-decoration: none;
+            font-size: 3em;
+            color: $textcolor;
+            opacity: 0.5;
+
+            &:hover {
+                transform: rotateY(360deg);
+                opacity: 1;
+                transition: 0.6s ease-in-out;
+            }
+
+            
+        }
+    }
+
+    #regForm {
+        margin: 100px auto;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 40px;
+        width: 70%;
+        min-width: 300px;
+
+        h1 {
+            color: rgb(255, 187, 0);
+            text-align: center;
+            padding: 20px;
+        }
+
+        input {
+            padding: 20px;
+            width: 100%;
+            font-size: 17px;
+            border: 1px solid #aaaaaa;
+            border-radius: 30px;
+            &:focus {
+                outline: none;
+                border: 2px solid rgb(255, 187, 0);
+            }
+            &:hover {
+                background-color: rgb(218, 212, 212);
+            }
+
+        }
+
+        .tab {
+            display: none;
+            animation: moveRight 0.5s ease both;
+        }
+
+        button {
+            background-color: $secondcolor;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 17px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            #prevBtn {
+                background-color: $maincolor;
+            }
+        }
+
+        .step {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbbbbb;
+            border: none;
+            border-radius: 50%;
+            display: inline-block;
+            opacity: 0.5;
+
+
+            .finish {
+                background-color: red;
+            }
+
+        }
+    }
+}
+
+.invalid {
+    background-color: #ffdddd;
+}
+.active {
+    opacity: 1;
+}
+
+.contactForm {
+    margin:0 70px 10px 70px ;
+    background-color: rgb(235, 232, 232);
+    background-color: $maincolor;
+    border-radius: 0 0 110px 110px;
+
+    form {
+        @include centerDiv();
+        padding: 50px;
+
+        ::placeholder {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        label {
+            color: rgb(255, 208, 0);
+            font-weight: bolder;
+        }
+        
+        
+        input,  textarea {
+            display: block;
+            width: 100%;
+            border: none;
+            font-size: 20px;
+            margin: 10px 0px;
+            padding: 10px 15px;
+            border-radius: 20px;
+
+            &:hover:not(label),&:focus:not(label) {
+                outline: none;
+                background-color: rgb(236, 213, 213);
+            }
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            background-color: $secondcolor;
+            width: 80px;
+            opacity: 0.7;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 1;
+                transition: 0.3s;
+            }
+        }
+    }
+
+}

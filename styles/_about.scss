@@ -1,0 +1,88 @@
+@keyframes upandDown {
+    from {transform: translate(0,-5px);}
+    to {transform: translate(0,0);}
+}
+
+@keyframes drawDown {
+    from {
+        transform: translateY(-500px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes drawUp {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-700px);
+    }
+}
+
+.about {
+    position: fixed;
+    top: 0;
+    height: 0;
+    background-color: $secondcolor;
+    opacity: 0.97;
+    width: 100%;
+    top: 0;
+    //padding: 100px;
+    color: $textcolor;
+    font-size: larger;
+    transition: 0.5s ease-in-out;
+
+    #close {
+        position: fixed;
+        top: 20px;
+        right: 100px;
+        display: none;
+
+        &:hover {
+            animation: upandDown 0.5s ease  infinite;
+        }
+
+        a{
+            text-decoration: none;
+            color: #111;
+            opacity: 0.4;
+            font-size: 3em;
+            //transition: 0.5s ease;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    h1{
+        text-align: center;
+        margin: 30px;
+        font-size: 50px
+    }
+
+    .info{
+        @include centerDiv();
+        width: 70%;
+        display: none;
+        transition: 0.5s ease-in-out;
+        animation: drawDown 0.5s ease-in-out;
+
+        p{
+            padding: 20px;
+            background-color: $maincolor;
+        }
+
+        .moreInfo {
+            border-left: 5px solid rgb(255, 208, 0);
+
+            a{
+                text-decoration: none;
+                color: $secondcolor;
+                font-style: italic;
+            }
+        }
+    }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
+    <script src="script/index.js"></script>
+    <title>Contact</title>
+</head>
+<body>
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+      </div>    
+    <div class="head">
+        <h1>Send a direct email here</h1>
+
+        <div class="tagline">
+            <p>You will get a response ASAP</p>
+        </div>
+    </div>
+
+    <div class="bars" id="bars" onclick="openNav()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="sidenav" id="sidenav">
+        <a href="index.html">Home</a>
+        <a href="javascript:void(0)" onclick="aboutUs()">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="lessons.html">Lessons</a>
+        <a href="javascript:void(0)" onclick="closeNav()" class="close">&times;</a>
+    </div>
+    <div class="about" id="about">
+
+        <div id="close">
+            <a href="javascript:void(0)"; onclick="closeAbout()">&times;</a>
+        </div>
+        <div class="info" id="info">
+            <h1>About</h1>
+
+            <p class="par">Benson's WebDev Masterclass is a series of classes organized periodically
+                in different locations and online.
+            </p>
+            <p class="par">
+                The goal is to create practical web developers who will help the web Development
+                community in Ghana grow
+            </p>
+            <p class="par">
+                Our classes are limited to 50 people. This is to facilitate easy use
+                and efficient teaching and learning.
+            </p>
+
+            <p class="moreInfo">
+                For more information, send us an email to <a href="mailto:benson@kejetia.online">benson@kejetia.online</a><br>
+                Or call/whatsapp +233560146182
+            </p>
+        </div>
+    </div>
+    <div class="contactForm">
+        <form action="contact.php" method="POST">
+            <label for="fname">First Name</label>
+            <input type="text" name="fname" id="fname" placeholder="First name...">
+            <label for="lname">Last Name</label>
+            <input type="text" name="lname" id="lname" placeholder="Last name...">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="test@example.com">
+
+            <label for="msg">Message</label>
+            <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Type message here..."></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,58 @@
+@media screen and (max-width: 800px) {
+    .head {
+        //padding: 20px;
+        h1 {
+            font-size: 2em;
+        }
+
+        .tagline {
+            width: 100%;
+        }
+    }
+
+    .parallax {
+        .mainContent {
+            width: 100%;
+            grid-template-columns: 100%;
+        }
+    }
+
+    .formCont {
+        padding: 50px;
+
+        #regForm{
+            width: 100%;
+        }
+    }
+
+    .about {
+
+        #close {
+            top: 10px;
+            right: 20px;
+        }
+
+        .info {
+            width: 100%;
+        }
+    }
+
+    .modal{
+        .modalCont {
+            //margin-top: 100px;
+            width:70%;
+        }
+    }
+
+    .contactForm {
+        margin: 10px;
+        form {
+            width: 100%;
+        }
+    }  
+    
+    #comingSoon {
+        width: 100%;
+    }
+}
+

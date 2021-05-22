@@ -1,0 +1,817 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+#loader {
+  display: block;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 3px solid transparent;
+  border-top-color: white;
+  border-radius: 100%;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  z-index: 1001;
+}
+
+#loader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 3px solid transparent;
+  border-top-color: yellow;
+  border-radius: 100%;
+  -webkit-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
+}
+
+#loader:after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border: 3px solid transparent;
+  border-top-color: orange;
+  border-radius: 100%;
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+#loader-wrapper .loader-section {
+  position: fixed;
+  top: 0;
+  background: #131355;
+  width: 51%;
+  height: 100%;
+  z-index: 1000;
+}
+
+#loader-wrapper .loader-section.section-left {
+  left: 0;
+}
+
+#loader-wrapper .loader-section.section-right {
+  right: 0;
+}
+
+/* Loaded Styles */
+.loaded #loader-wrapper .loader-section.section-left {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.loaded #loader-wrapper .loader-section.section-right {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.loaded #loader {
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.loaded #loader-wrapper {
+  visibility: hidden;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: all 0.3s 1s ease-out;
+  transition: all 0.3s 1s ease-out;
+}
+
+.head {
+  background-color: #131355;
+  padding: 30px;
+  height: 300px;
+}
+
+.head h1 {
+  text-align: center;
+  font-size: 3em;
+  color: white;
+}
+
+.head .tagline {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  color: white;
+}
+
+.head .tagline p {
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.bars {
+  width: 40px;
+  height: 50px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  opacity: 0.5;
+  cursor: pointer;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.bars:hover {
+  width: 45px;
+  opacity: 1;
+}
+
+.bars .bar {
+  background-color: #5fa1ff;
+  width: 100%;
+  height: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.bars .bar:last-child {
+  width: 50%;
+}
+
+.bars .bar:nth-child(2) {
+  width: 70%;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(17, 17, 17, 0.972);
+  overflow-x: hidden;
+  padding-top: 10px;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  text-align: center;
+}
+
+.sidenav .close {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  font-size: 4em;
+}
+
+.sidenav a {
+  text-decoration: none;
+  padding: 10px;
+  font-size: 30px;
+  color: #818181;
+  display: block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.parallax {
+  height: 600px;
+  background-image: url("pic2.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.parallax .mainContent {
+  margin: auto;
+  width: 50%;
+  width: 60%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  -ms-grid-rows: minmax(50px, 100px);
+      grid-template-rows: minmax(50px, 100px);
+  padding: 50px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.parallax .mainContent .contentHead {
+  grid-column: 1/-1;
+  padding: 50px;
+}
+
+.parallax .mainContent .choice {
+  background-color: #5fa1ff;
+  margin: 10px;
+  padding: 30px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.parallax .mainContent .choice a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.parallax .mainContent .choice:hover {
+  background-color: #0b416d;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.424);
+          box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.424);
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 0px;
+  right: 10px;
+  background-color: green;
+  width: 50px;
+  height: 10px;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  opacity: 0.5;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.whatsapp:hover {
+  opacity: 1;
+}
+
+.whatsapp a {
+  text-decoration: none;
+  color: white;
+}
+
+#contactDetails {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  width: 250px;
+  height: 0;
+  background-color: white;
+  border-radius: 10px 10px 0 0;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+#contactDetails .contactInfo {
+  padding: 20px;
+}
+
+#contactDetails .contactInfo i {
+  padding-right: 10px;
+}
+
+#contactDetails .contactInfo a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+  padding: 10px;
+  margin: 10px;
+  background-color: red;
+  border-radius: 20px;
+}
+
+#contactDetails .contactInfo a:first-child {
+  background-color: #131355;
+}
+
+#contactDetails .contactInfo a:nth-child(2) {
+  background-color: green;
+}
+
+#contactDetails .contactInfo a:hover {
+  font-size: 1.5em;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.footer {
+  background-color: #0b416d;
+  padding: 2px;
+}
+
+.footer p {
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+@-webkit-keyframes moveRight {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.formCont {
+  position: absolute;
+  top: 0;
+  display: none;
+  height: 100%;
+  padding: 100px;
+  width: 100%;
+  background-color: #131355;
+  color: white;
+  font-size: 20px;
+  -webkit-transition: display 0.5s ease;
+  transition: display 0.5s ease;
+  -webkit-animation: moveRight 0.5s ease both;
+          animation: moveRight 0.5s ease both;
+}
+
+.formCont .cancel {
+  position: absolute;
+  top: 50;
+  right: 50px;
+}
+
+.formCont .cancel a {
+  text-decoration: none;
+  font-size: 3em;
+  color: white;
+  opacity: 0.5;
+}
+
+.formCont .cancel a:hover {
+  -webkit-transform: rotateY(360deg);
+          transform: rotateY(360deg);
+  opacity: 1;
+  -webkit-transition: 0.6s ease-in-out;
+  transition: 0.6s ease-in-out;
+}
+
+.formCont #regForm {
+  margin: 100px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+.formCont #regForm h1 {
+  color: #ffbb00;
+  text-align: center;
+  padding: 20px;
+}
+
+.formCont #regForm input {
+  padding: 20px;
+  width: 100%;
+  font-size: 17px;
+  border: 1px solid #aaaaaa;
+  border-radius: 30px;
+}
+
+.formCont #regForm input:focus {
+  outline: none;
+  border: 2px solid #ffbb00;
+}
+
+.formCont #regForm input:hover {
+  background-color: #dad4d4;
+}
+
+.formCont #regForm .tab {
+  display: none;
+  -webkit-animation: moveRight 0.5s ease both;
+          animation: moveRight 0.5s ease both;
+}
+
+.formCont #regForm button {
+  background-color: #5fa1ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.formCont #regForm button:hover {
+  opacity: 0.8;
+}
+
+.formCont #regForm button #prevBtn {
+  background-color: #131355;
+}
+
+.formCont #regForm .step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.formCont #regForm .step .finish {
+  background-color: red;
+}
+
+.invalid {
+  background-color: #ffdddd;
+}
+
+.active {
+  opacity: 1;
+}
+
+.contactForm {
+  margin: 0 70px 10px 70px;
+  background-color: #ebe8e8;
+  background-color: #131355;
+  border-radius: 0 0 110px 110px;
+}
+
+.contactForm form {
+  margin: auto;
+  width: 50%;
+  padding: 50px;
+}
+
+.contactForm form ::-webkit-input-placeholder {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.contactForm form :-ms-input-placeholder {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.contactForm form ::-ms-input-placeholder {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.contactForm form ::placeholder {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.contactForm form label {
+  color: #ffd000;
+  font-weight: bolder;
+}
+
+.contactForm form input, .contactForm form textarea {
+  display: block;
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  margin: 10px 0px;
+  padding: 10px 15px;
+  border-radius: 20px;
+}
+
+.contactForm form input:hover:not(label), .contactForm form input:focus:not(label), .contactForm form textarea:hover:not(label), .contactForm form textarea:focus:not(label) {
+  outline: none;
+  background-color: #ecd5d5;
+}
+
+.contactForm form button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #5fa1ff;
+  width: 80px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.contactForm form button:hover {
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+@-webkit-keyframes upandDown {
+  from {
+    -webkit-transform: translate(0, -5px);
+            transform: translate(0, -5px);
+  }
+  to {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+@keyframes upandDown {
+  from {
+    -webkit-transform: translate(0, -5px);
+            transform: translate(0, -5px);
+  }
+  to {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+@-webkit-keyframes drawDown {
+  from {
+    -webkit-transform: translateY(-500px);
+            transform: translateY(-500px);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes drawDown {
+  from {
+    -webkit-transform: translateY(-500px);
+            transform: translateY(-500px);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes drawUp {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(-700px);
+            transform: translateY(-700px);
+  }
+}
+
+@keyframes drawUp {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(-700px);
+            transform: translateY(-700px);
+  }
+}
+
+.about {
+  position: fixed;
+  top: 0;
+  height: 0;
+  background-color: #5fa1ff;
+  opacity: 0.97;
+  width: 100%;
+  top: 0;
+  color: white;
+  font-size: larger;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.about #close {
+  position: fixed;
+  top: 20px;
+  right: 100px;
+  display: none;
+}
+
+.about #close:hover {
+  -webkit-animation: upandDown 0.5s ease  infinite;
+          animation: upandDown 0.5s ease  infinite;
+}
+
+.about #close a {
+  text-decoration: none;
+  color: #111;
+  opacity: 0.4;
+  font-size: 3em;
+}
+
+.about #close a:hover {
+  opacity: 1;
+}
+
+.about h1 {
+  text-align: center;
+  margin: 30px;
+  font-size: 50px;
+}
+
+.about .info {
+  margin: auto;
+  width: 50%;
+  width: 70%;
+  display: none;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  -webkit-animation: drawDown 0.5s ease-in-out;
+          animation: drawDown 0.5s ease-in-out;
+}
+
+.about .info p {
+  padding: 20px;
+  background-color: #131355;
+}
+
+.about .info .moreInfo {
+  border-left: 5px solid #ffd000;
+}
+
+.about .info .moreInfo a {
+  text-decoration: none;
+  color: #5fa1ff;
+  font-style: italic;
+}
+
+@-webkit-keyframes scaleUp {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.534);
+}
+
+.modal .modalCont {
+  background-color: #5fa1ff;
+  margin: auto;
+  width: 500px;
+  margin-top: 400px;
+  padding: 50px;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 5px 2px rgba(19, 18, 18, 0.719);
+          box-shadow: 2px 2px 5px 2px rgba(19, 18, 18, 0.719);
+  -webkit-animation: scaleUp 0.5s ease-in-out;
+          animation: scaleUp 0.5s ease-in-out;
+}
+
+.modal .modalCont p {
+  font-size: 20px;
+}
+
+.modal .modalCont button {
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 2px 10px;
+  width: 70px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.modal .modalCont button:hover {
+  opacity: 1;
+}
+
+#comingSoon {
+  margin: auto;
+  width: 50%;
+  margin-top: 100px;
+  height: 100%;
+  padding: 50px;
+  text-align: center;
+}
+
+#comingSoon p {
+  color: red;
+  font-weight: bolder;
+}
+
+@media screen and (max-width: 800px) {
+  .head h1 {
+    font-size: 2em;
+  }
+  .head .tagline {
+    width: 100%;
+  }
+  .parallax .mainContent {
+    width: 100%;
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+  .formCont {
+    padding: 50px;
+  }
+  .formCont #regForm {
+    width: 100%;
+  }
+  .about #close {
+    top: 10px;
+    right: 20px;
+  }
+  .about .info {
+    width: 100%;
+  }
+  .modal .modalCont {
+    width: 70%;
+  }
+  .contactForm {
+    margin: 10px;
+  }
+  .contactForm form {
+    width: 100%;
+  }
+  #comingSoon {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=index.css.map */
