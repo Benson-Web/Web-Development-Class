@@ -364,6 +364,11 @@ body {
   color: white;
 }
 
+.footer a {
+  color: #5fa1ff;
+  font-style: italic;
+}
+
 @-webkit-keyframes moveRight {
   0% {
     width: 0;
@@ -774,6 +779,22 @@ body {
 #comingSoon p {
   color: red;
   font-weight: bolder;
+  margin-bottom: 40px;
+}
+
+#comingSoon a {
+  text-decoration: none;
+  padding: 10px;
+  margin: 10px;
+  background-color: #131355;
+  color: white;
+  border-radius: 20px;
+}
+
+#comingSoon a:hover {
+  background-color: black;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 @media screen and (max-width: 800px) {

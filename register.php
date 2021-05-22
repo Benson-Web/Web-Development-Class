@@ -42,6 +42,15 @@ function test_input($data) {
     $data = htmlspecialchars($data);
     return $data;
   }
+
+  $sendTo = $email;
+  $subject = "Response Recieved";
+  $htmlContent = file_get_contents("emailmsg.html");
+  $headers  = 'MIME-Version: 1.0' . "\r\n";
+  $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+  $headers = "From: benson@kejetia.online";
+  
+  mail($sendTo,$subject,$htmlContent,$headers);
   
 $to = "benson@kejetia.online";
 $subj = "Web Development Master Class";
