@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/index.css">
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
     <script src="script/index.js"></script>
     <title>Contact</title>
 </head>
@@ -71,8 +72,10 @@
 
             <label for="msg">Message</label>
             <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Type message here..."></textarea>
+            <div class="g-recaptcha" data-sitekey="6LcIX-IaAAAAAE6EknfO54BgFKoATWGlboH2e-K-"></div>
 
             <button type="submit">Send</button>
+
         </form>
     </div>
 
