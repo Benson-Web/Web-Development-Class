@@ -5,8 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/index.css">
-    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
-    <script src="script/index.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfXduIaAAAAADa_q-8jOqjPwdGBsjDPrmXhg_Eg"></script>
+    <script>
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LfXduIaAAAAADa_q-8jOqjPwdGBsjDPrmXhg_Eg', {action: 'homepage'}).then(function(token) {
+          // pass the token to the backend script for verification
+        });
+    });
+    </script>    <script src="script/index.js"></script>
     <title>Register</title>
 </head>
 <body>
@@ -68,13 +74,15 @@
                 <p><input type="text" name="city" placeholder="City of residence..."></p>
                 <p><input type="text" name="town" placeholder="Town..."></p>
             </div>
-            <div class="g-recaptcha tab" data-sitekey="6LcIX-IaAAAAAE6EknfO54BgFKoATWGlboH2e-K-"></div>
 
 
             <div style="overflow: auto;">
                 <div style="float: right;">
                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                    <button type="button" id="nextBtn" onclick="nextPrev(1)" >Next</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)" class="g-recaptcha" 
+                    data-sitekey="reCAPTCHA_site_key" 
+                    data-callback='onSubmit' 
+                    data-action='submit'>Next</button>
                 </div>
             </div>
 
