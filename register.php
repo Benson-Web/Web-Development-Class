@@ -46,8 +46,7 @@ function test_input($data) {
   $sendTo = $email;
   $subject = "Response Recieved";
   $htmlContent = file_get_contents("emailmsg.html");
-  $headers  = 'MIME-Version: 1.0' . "\r\n";
-  $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+  $headers  = 'MIME-Version: 1.0' . "\r\n".'Content-type: text/html; charset=utf-8' . "\r\n";
   $headers = "From: benson@kejetia.online";
   
   mail($sendTo,$subject,$htmlContent,$headers);
@@ -55,7 +54,8 @@ function test_input($data) {
 $to = "benson@kejetia.online";
 $subj = "Web Development Master Class";
 
-$message = "Name: ". $lname. " ". $firstname ."\r\n";
+$message = "Last Name: ". $lname ."\r\n";
+$message .= "First Name: ". $fname ."\r\n";
 $message .= "Email: ". $email. "\r\n";
 $message .= "Phone Number: ". $pnumber. "\r\n";
 $message .= "City : ". $city. "\r\n";
@@ -77,11 +77,6 @@ if(isset($_POST['g-recaptcha-response'])){
   $response = file_get_contents($url);
   $responseKeys = json_decode($response,true);
   // should return JSON with success as true
-  if($responseKeys["success"]) {
-          echo '<h2>Thanks for posting comment</h2>';
-  } else {
-          echo '<h2>You are spammer ! Get the @$%K out</h2>';
-  }
       ?>
 
 <!DOCTYPE html>
@@ -168,12 +163,16 @@ if(isset($_POST['g-recaptcha-response'])){
 
 <div id="comingSoon">
     <?php
-        if (mail($to,$subj,$message,$header)) {
+        if (mail($to,$subj,$message,$header) && $responseKeys["success"]) {
             echo "<h2>Response sent successfully!</h2>
             <h3>We will respond ASAP</h3>";
         } else {
             echo "<h2>Email failed to send!</h2>
             <h3>Please try again</h3>";
+        }
+
+        if (!$responseKeys["success"]) {
+            echo "<h3>Please check captcha</h3>";
         }
     ?>
 </div>
