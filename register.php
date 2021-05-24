@@ -63,8 +63,19 @@ $message .= "Town : ". $town. "\r\n";
 
 $header = "From: ". $email . $fname;
 
-
-
+if(isset($_POST['g-recaptcha-response'])){
+    $captcha=$_POST['g-recaptcha-response'];
+  }
+  if(!$captcha){
+    echo '<script>alert("Please check the the captcha form")</script>';
+    exit;
+  }
+  $secretKey = "6LcIX-IaAAAAACX-zUBj9iH1wg2k8-Adid7FFShK";
+  $ip = $_SERVER['REMOTE_ADDR'];
+  // post request to server
+  $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
+  $response = file_get_contents($url);
+  $responseKeys = json_decode($response,true);
 
 ?>
 

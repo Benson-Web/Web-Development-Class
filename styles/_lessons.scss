@@ -8,25 +8,6 @@
     p{
         color: red;
         font-weight: bolder;
-        margin-bottom: 40px;
-    }
-
-    a{
-        text-decoration: none;
-        padding: 10px;
-        margin: 10px;
-        background-color: $maincolor;
-        color: $textcolor;
-        border-radius: 20px;
-
-
-        &:hover {
-            background-color: black;
-            transition: 0.3s;
-        }
-        
-
-        
     }
 
 }

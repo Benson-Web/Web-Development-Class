@@ -43,7 +43,7 @@ if(isset($_POST['g-recaptcha-response'])){
     $captcha=$_POST['g-recaptcha-response'];
   }
   if(!$captcha){
-    echo '<h2>Please check the the captcha form.</h2>';
+    echo '<script>alert("Please check the the captcha form")</script>';
     exit;
   }
   $secretKey = "6LcIX-IaAAAAACX-zUBj9iH1wg2k8-Adid7FFShK";

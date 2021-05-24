@@ -11,6 +11,7 @@
     }
 
     .parallax {
+        background-attachment: scroll;
         .mainContent {
             width: 100%;
             grid-template-columns: 100%;

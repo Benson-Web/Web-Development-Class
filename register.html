@@ -5,31 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
     <script src="script/index.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Benson's WebDev Masterclass</title>
+    <title>Register</title>
 </head>
 <body>
-    <div id="loader-wrapper">
-        <div id="loader"></div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-      </div>    
-    <div class="head">
-        <h1>Benson's WebDev <br>Masterclass</h1>
-
-        <div class="tagline">
-            <p>Web Development made simple</p>
-        </div>
-    </div>
 
     <div class="bars" id="bars" onclick="openNav()">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
     </div>
-
     <div class="sidenav" id="sidenav">
         <a href="index.html">Home</a>
         <a href="javascript:void(0)" onclick="aboutUs()">About</a>
@@ -37,23 +23,6 @@
         <a href="lessons.html">Lessons</a>
         <a href="javascript:void(0)" onclick="closeNav()" class="close">&times;</a>
     </div>
-
-    <div class="parallax">
-        <div class="mainContent">
-            <div class="contentHead">
-                <h2>Lets Begin The Journey</h2>
-            </div>
-    
-            <div class="choice">
-                <a href="register.html">Book a spot</a>
-            </div>
-            <div class="choice">
-                <a href="javascript:void(0)" onclick="aboutUs()">About Us</a>
-            </div>
-        </div>
-        <p style="text-align: center;">Only 50 spots available</p>
-    </div>
-
     <div class="about" id="about">
 
         <div id="close">
@@ -80,7 +49,54 @@
             </p>
         </div>
     </div>
+    <div class="formCont" id="form">
+        <div class="cancel">
+            <a href="javascript:void(0)" class="cancel" onclick="openModal()">&times;</a>
+        </div>
 
+        <form action="register.php" method="POST" id="regForm">
+            <h1>Register</h1>
+            <div class="tab">Name:
+                <p><input type="text" name="fname" id="fname" placeholder="First name..."></p>
+                <p><input type="text" name="lname" id="lname" placeholder="Last name..."></p>
+            </div>
+            <div class="tab">Contact Infor:
+                <p><input type="tel" name="pnumber" id="pnumber" maxlength="10" placeholder="Phone number..."></p>
+                <p><input type="email" name="email" id="email" placeholder="Email..."></p>
+            </div>
+            <div class="tab">Address:
+                <p><input type="text" name="city" placeholder="City of residence..."></p>
+                <p><input type="text" name="town" placeholder="Town..."></p>
+            </div>
+            <div class="g-recaptcha tab" data-sitekey="6LcIX-IaAAAAAE6EknfO54BgFKoATWGlboH2e-K-"></div>
+
+
+            <div style="overflow: auto;">
+                <div style="float: right;">
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)" >Next</button>
+                </div>
+            </div>
+
+
+            <div style="text-align: center;margin-top: 40px;">
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modalCont">
+            <p>Are you you want to close this form?</p>
+            <button onclick="document.location = 'index.html';">Yes</button>
+            <button onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script/form.js" ></script>
 
 
     <div class="whatsapp" onclick="openContacts()">
