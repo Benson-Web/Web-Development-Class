@@ -63,34 +63,26 @@ $message .= "Town : ". $town. "\r\n";
 
 $header = "From: ". $email . $fname;
 
-if(!$captcha){
+if(isset($_POST['g-recaptcha-response'])){
+    $captcha=$_POST['g-recaptcha-response'];
+  }
+  if(!$captcha){
     echo '<h2>Please check the the captcha form.</h2>';
     exit;
   }
-  $secretKey = "6LfXduIaAAAAAHgQmaJ2D2QVBkeIz-EwTEkYfKbC";
+  $secretKey = "6LcIX-IaAAAAACX-zUBj9iH1wg2k8-Adid7FFShK";
   $ip = $_SERVER['REMOTE_ADDR'];
-
   // post request to server
-  $url = 'https://www.google.com/recaptcha/api/siteverify';
-  $data = array('secret' => $secretKey, 'response' => $captcha);
-
-  $options = array(
-    'http' => array(
-      'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-      'method'  => 'POST',
-      'content' => http_build_query($data)
-    )
-  );
-  $context  = stream_context_create($options);
-  $response = file_get_contents($url, false, $context);
+  $url = 'https://www.google.com/recaptcha/api/siteverify?secret=' . urlencode($secretKey) .  '&response=' . urlencode($captcha);
+  $response = file_get_contents($url);
   $responseKeys = json_decode($response,true);
-  header('Content-type: application/json');
+  // should return JSON with success as true
   if($responseKeys["success"]) {
-    echo json_encode(array('success' => 'true'));
+          echo '<h2>Thanks for posting comment</h2>';
   } else {
-    echo json_encode(array('success' => 'false'));
-  }?>
-
+          echo '<h2>You are spammer ! Get the @$%K out</h2>';
+  }
+      ?>
 
 <!DOCTYPE html>
 <html lang="en">
