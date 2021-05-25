@@ -64,14 +64,14 @@
     <div class="contactForm">
         <form action="contact.php" method="POST">
             <label for="fname">First Name</label>
-            <input type="text" name="fname" id="fname" placeholder="First name...">
+            <input type="text" name="fname" id="fname" placeholder="First name..." required>
             <label for="lname">Last Name</label>
-            <input type="text" name="lname" id="lname" placeholder="Last name...">
+            <input type="text" name="lname" id="lname" placeholder="Last name..." required>
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="test@example.com">
+            <input type="email" name="email" id="email" placeholder="test@example.com" required>
 
             <label for="msg">Message</label>
-            <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Type message here..."></textarea>
+            <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Type message here..." required></textarea>
             <div class="g-recaptcha" data-sitekey="6LcIX-IaAAAAAE6EknfO54BgFKoATWGlboH2e-K-"></div>
 
             <button type="submit">Send</button>

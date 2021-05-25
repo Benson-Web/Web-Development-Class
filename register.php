@@ -1,5 +1,5 @@
 <?php
-$fname = $lname = $email = $pnumber = $pnumber = $city = $town = "";
+$fname = $lname = $email = $pnumber = $countryCode = $pnumber = $city = $town = "";
 $fnameErr = $lnameErr = $emailErr = $pnumberErr = $pnumberErr = $cityErr = $townErr = "";
 
 if ($_SERVER["REQUEST_METHOD"]== "POST") {
@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"]== "POST") {
     } else {
         $town = test_input($_POST["town"]);
     }
+    $countryCode = test_input($_POST["countryCode"]);
 }
 
 
@@ -46,9 +47,11 @@ function test_input($data) {
   $sendTo = $email;
   $subject = "Response Recieved";
   $htmlContent = file_get_contents("emailmsg.html");
-  $headers  = 'MIME-Version: 1.0' . "\r\n".'Content-type: text/html; charset=utf-8' . "\r\n";
-  $headers = "From: benson@kejetia.online";
-  
+  $headers = "From: Benson \r\n";
+  $headers .= "Reply-To: benson@kejetia.online \r\n";
+  $headers .= "MIME-Version: 1.0\r\n";
+  $headers .= "Content-Type: text/html; charset=ISO-8859-1 \r\n";  
+
   mail($sendTo,$subject,$htmlContent,$headers);
   
 $to = "benson@kejetia.online";
@@ -57,7 +60,7 @@ $subj = "Web Development Master Class";
 $message = "Last Name: ". $lname ."\r\n";
 $message .= "First Name: ". $fname ."\r\n";
 $message .= "Email: ". $email. "\r\n";
-$message .= "Phone Number: ". $pnumber. "\r\n";
+$message .= "Phone Number: (".$countryCode.") ". $pnumber. "\r\n";
 $message .= "City : ". $city. "\r\n";
 $message .= "Town : ". $town. "\r\n";
 

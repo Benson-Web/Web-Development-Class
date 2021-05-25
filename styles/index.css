@@ -432,7 +432,7 @@ body {
   padding: 20px;
 }
 
-.formCont #regForm input {
+.formCont #regForm input, .formCont #regForm select {
   padding: 20px;
   width: 100%;
   font-size: 17px;
@@ -440,12 +440,12 @@ body {
   border-radius: 30px;
 }
 
-.formCont #regForm input:focus {
+.formCont #regForm input:focus, .formCont #regForm select:focus {
   outline: none;
   border: 2px solid #ffbb00;
 }
 
-.formCont #regForm input:hover {
+.formCont #regForm input:hover, .formCont #regForm select:hover {
   background-color: #dad4d4;
 }
 
